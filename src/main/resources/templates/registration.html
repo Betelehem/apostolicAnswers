@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - School Bootcamp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: url('https://i0.wp.com/holyapostleschurch.org/wp-content/uploads/2019/10/Orthodox-Church-at-Sunset-1600x735.jpg?ssl=1') no-repeat center center fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-link {
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Register</h2>
+    <form id="registerForm">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+        </div>
+        <div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" class="form-control" id="middleName" placeholder="Enter your middle name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+    <a href="login.html" class="login-link">Already have an account? Login here</a>
+</div>
+
+<script>
+    const domain = "@example.com";  // Define the domain to append
+
+    // Handle form submission
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent form from submitting automatically
+
+        const emailField = document.getElementById('email');
+        let emailValue = emailField.value;
+
+        // If the email doesn't already include the domain, add it
+        if (!emailValue.includes(domain)) {
+            emailValue += domain;
+        }
+
+        console.log("Submitted email: " + emailValue);  // For now, we log it to console (you can handle the actual submission here)
+        // Normally, you would send this data to your server here
+
+        // Optionally: Proceed with form submission
+        // e.g., using AJAX or form.submit();
+    });
+</script>
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const user = {
+            firstName: document.getElementById('firstName').value,
+            middleName: document.getElementById('middleName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+
+        const response = await fetch('/api/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+
+        const result = await response.text();
+        document.getElementById('result').textContent = result;
+    });
+</script>
+
+</body>
+</html>

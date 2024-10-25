@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostolic Answers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Addis_abeba%2C_chiesa_della_trinit%C3%A0%2C_esterno_01.jpg/2560px-Addis_abeba%2C_chiesa_della_trinit%C3%A0%2C_esterno_01.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        .navbar-custom {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: white;
+        }
+        .navbar-custom .navbar-brand {
+            color: white;
+        }
+        .navbar-custom .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .navbar-custom .dropdown-item {
+            color: white;
+        }
+        .navbar-custom .logo {
+            height: 40px;
+            width: auto;
+        }
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        footer {
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Toolbar/Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <!-- Logo Image -->
+        <a class="navbar-brand" href="#">
+            <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/369637381_315617811128478_7678758323923881254_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=RVfo4_10dMkQ7kNvgGwAIw-&_nc_zt=23&_nc_ht=scontent-hou1-1.xx&_nc_gid=A5cc2HOdoARLrsWIUHs8w6C&oh=00_AYBCML8fCecn43aXajIFtFwmjQJu-Byqsy4ZMRFWT2PSYA&oe=6720789F" alt="Logo" class="logo">
+        </a>
+
+        <!-- Language Preference Dropdown -->
+        <a class="navbar-brand" href="#">
+            <select id="languageSelect" class="form-select" onchange="changeLanguage()" style="width:auto; display:inline-block;">
+                <option value="english">English</option>
+                <option value="amharic">አማርኛ</option>
+                <option value="oromiffa">Oromiffa</option>
+                <option value="tigrinya">ትግርኛ</option>
+            </select>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Right side: Login and Course Dropdown -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html" id="loginText">Login</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="coursesText">
+                        Courses
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Course 1</a></li>
+                        <li><a class="dropdown-item" href="#">Course 2</a></li>
+                        <li><a class="dropdown-item" href="#">Course 3</a></li>
+                        <li><a class="dropdown-item" href="#">Course 4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <h1 id="welcomeText">Welcome to Apostolic Answers</h1>
+</div>
+
+<footer class="social-links">
+    <h3 id="followUsText">Follow Us On Social Media</h3>
+    <a href="https://www.facebook.com/ApostolicAnswers?mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.youtube.com/@apostolicanswers1" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@apostolicanswers?_t=8qlddbh9r9L&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://t.me/Apostolic_Answers" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+</footer>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // Language translations
+    const translations = {
+        english: {
+            welcome: "Welcome to Apostolic Answers",
+            login: "Login",
+            courses: "Courses",
+            followUs: "Follow Us On Social Media"
+        },
+        amharic: {
+            welcome: "እንኳን ወደ አፖስቶሊክ መልሶች በደህና መጡ",
+            login: "ግባ",
+            courses: "ኮርሶች",
+            followUs: "በሶሻል ሚዲያ ተከታተሉ"
+        },
+        oromiffa: {
+            welcome: "Baga Nagaan Gara Deebii Aposolic Dhuftan",
+            login: "Seeni",
+            courses: "Koorsota",
+            followUs: "Soshaal Miidiyaa Keenya Hordofaa"
+        },
+        tigrinya: {
+            welcome: "እንቋዕ ብሰላም ወደ ኣፖስቶሊክ መልስታት እትመጹ",
+            login: "እቶ",
+            courses: "ኮርሶታት",
+            followUs: "በሶሻል ሚዲያ ተኸታተሉ"
+        }
+    };
+
+    // Function to change the language
+    function changeLanguage() {
+        const selectedLanguage = document.getElementById('languageSelect').value;
+        const { welcome, login, courses, followUs } = translations[selectedLanguage];
+
+        // Update text content based on selected language
+        document.getElementById('welcomeText').textContent = welcome;
+        document.getElementById('loginText').textContent = login;
+        document.getElementById('navbarDropdown').textContent = courses;
+        document.getElementById('followUsText').textContent = followUs;
+    }
+</script>
+
+</body>
+</html>
